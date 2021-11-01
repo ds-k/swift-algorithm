@@ -1,1 +1,1 @@
-# lecture-note
+# swift-algorithm
