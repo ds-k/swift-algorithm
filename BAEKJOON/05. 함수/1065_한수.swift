@@ -30,28 +30,49 @@
  119
 */
 
-let N = Int(readLine()!)!
+// let N = Int(readLine()!)!
 
-func findSelfAP(n : Int) -> Bool {
+// func findSelfAP(n : Int) -> Bool {
+//     let strInt = String(n)
+//     let len = strInt.count
+//     switch len {
+//     case 1:
+//         return true
+//     case 2:
+//         return true
+//     case 3:
+//         let hundreds = strInt[strInt.startIndex].wholeNumberValue!
+//         let tens = strInt[strInt.index(strInt.startIndex, offsetBy: 1)].wholeNumberValue!
+//         let units = strInt[strInt.index(before: strInt.endIndex)].wholeNumberValue!
+//         if (hundreds - tens) == (tens - units) {
+//             return true
+//         } else {
+//             return false
+//         }
+//     default:
+//         return false
+//     }
+// }
+// func refactoring
+// 1.  1, 2자리의 경우 무조건 true이기 때문에 , 3자리만 확인할 수 있도록 변환
+// 2. 각 자리수를 알기 위해서 string을 썼던 걸, Int형 그대로 연산으로 가능하도록
+
+func findSelfAP2(n : Int) -> Bool {
     let strInt = String(n)
     let len = strInt.count
-    switch len {
-    case 1:
-        return true
-    case 2:
-        return true
-    case 3:
-        let hundreds = strInt[strInt.startIndex].wholeNumberValue!
-        let tens = strInt[strInt.index(strInt.startIndex, offsetBy: 1)].wholeNumberValue!
-        let units = strInt[strInt.index(before: strInt.endIndex)].wholeNumberValue!
+    if len == 3 {
+        let hundreds = n / 100
+        let tens = (n % 100) / 10
+        let units = n % 10
         if (hundreds - tens) == (tens - units) {
             return true
         } else {
             return false
         }
-    default:
+    } else if len == 4 {
         return false
     }
+    return true
 }
 
 var count : Int = 0
