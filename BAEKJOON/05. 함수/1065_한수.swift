@@ -75,10 +75,10 @@ func findSelfAP2(n : Int) -> Bool {
     return true
 }
 
-var count : Int = 0
+var count = 0
 
 for i in 1...N {
-    if findSelfAP(n: i) {
+    if findSelfAP2(n: i) {
         count += 1
     }
 }
